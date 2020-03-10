@@ -1,6 +1,6 @@
 import 'package:flutter_clean_architecture/core/app_result.dart';
-import 'package:flutter_clean_architecture/domain/use_case/get_weather_by_city_name_use_case.dart';
-import 'package:flutter_clean_architecture/domain/use_case/save_city_name_use_case.dart';
+import 'package:flutter_clean_architecture/domain/use_case/vivocal_use_case.dart';
+import 'package:flutter_clean_architecture/domain/use_case/save_vivocal_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -9,7 +9,7 @@ import '../../util/test_stubs.dart';
 void main() {
   final MockAppRepository repository = MockAppRepository();
   final SaveCityNameUseCase saveCityNameUseCase = SaveCityName(repository);
-  final GetWeatherByCityNameUseCase useCase =
+  final GetVivocalUseCase useCase =
       GetWeatherByCityName(repository, saveCityNameUseCase);
 
   final String cityName = "London";

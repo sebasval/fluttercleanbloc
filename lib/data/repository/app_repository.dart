@@ -17,4 +17,7 @@ class AppRepository implements Repository {
 
   @override
   void saveCityName(String cityName) => localDataSource.saveCityName(cityName);
+
+  @override
+  Future<AppResult> signInGoogle() => remoteDataSource.signInGoogle();
 }

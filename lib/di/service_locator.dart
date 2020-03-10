@@ -12,8 +12,8 @@ import 'package:flutter_clean_architecture/data/storage/app_storage.dart';
 import 'package:flutter_clean_architecture/data/storage/storage.dart';
 import 'package:flutter_clean_architecture/domain/repository/repository.dart';
 import 'package:flutter_clean_architecture/domain/use_case/get_saved_cities_use_case.dart';
-import 'package:flutter_clean_architecture/domain/use_case/get_weather_by_city_name_use_case.dart';
-import 'package:flutter_clean_architecture/domain/use_case/save_city_name_use_case.dart';
+import 'package:flutter_clean_architecture/domain/use_case/vivocal_use_case.dart';
+import 'package:flutter_clean_architecture/domain/use_case/save_vivocal_use_case.dart';
 import 'package:flutter_clean_architecture/ui/home/home_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,11 +37,11 @@ Future<void> setupLocator() async {
   serviceLocator
       .registerLazySingleton<LocalDataSource>(() => AppLocalDataSource());
 
-  serviceLocator.registerFactory<GetWeatherByCityNameUseCase>(
+  serviceLocator.registerFactory<GetVivocalUseCase>(
       () => GetWeatherByCityName(serviceLocator.get(), serviceLocator.get()));
   serviceLocator.registerFactory<SaveCityNameUseCase>(
       () => SaveCityName(serviceLocator.get()));
-  serviceLocator.registerFactory<GetSavesCitiesUseCase>(
+  serviceLocator.registerFactory<SaveVivocalUseCase>(
       () => GetSavesCities(serviceLocator.get()));
 
   serviceLocator.registerFactory(

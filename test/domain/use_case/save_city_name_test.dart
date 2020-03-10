@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/domain/use_case/save_city_name_use_case.dart';
+import 'package:flutter_clean_architecture/domain/use_case/save_vivocal_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

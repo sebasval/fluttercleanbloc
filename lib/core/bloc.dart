@@ -6,7 +6,11 @@ abstract class Bloc {
   final StreamController<AppState> streamController =
       StreamController<AppState>.broadcast();
 
+  final StreamController<AppState> streamControllerLogin =
+      StreamController<AppState>.broadcast();
+
   void onDispose() {
     streamController.close();
+    streamControllerLogin.close();
   }
 }

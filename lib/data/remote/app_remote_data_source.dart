@@ -21,4 +21,10 @@ class AppRemoteDataSource implements RemoteDataSource {
       return AppResult.failure();
     }
   }
+
+  @override
+  Future<AppResult> signInGoogle() {
+    // TODO: implement signInGoogle
+    return null;
+  }
 }

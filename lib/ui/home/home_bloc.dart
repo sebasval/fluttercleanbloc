@@ -2,7 +2,7 @@ import 'package:flutter_clean_architecture/core/app_result.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/core/bloc.dart';
 import 'package:flutter_clean_architecture/domain/use_case/get_saved_cities_use_case.dart';
-import 'package:flutter_clean_architecture/domain/use_case/get_weather_by_city_name_use_case.dart';
+import 'package:flutter_clean_architecture/domain/use_case/vivocal_use_case.dart';
 
 abstract class HomeState extends AppState {}
 
@@ -13,19 +13,19 @@ class OnGetSavedCities extends HomeState {
 }
 
 class HomeBloc extends Bloc {
-  final GetWeatherByCityNameUseCase _getWeatherUseCase;
-  final GetSavesCitiesUseCase _getSavesCitiesUseCase;
+  final GetVivocalUseCase _getVivocalUseCase;
+  final SaveVivocalUseCase _getSavesVivocalUseCase;
 
-  HomeBloc(this._getWeatherUseCase, this._getSavesCitiesUseCase);
+  HomeBloc(this._getVivocalUseCase, this._getSavesVivocalUseCase);
 
   void getListOfSavedCities() {
     streamController.sink
-        .add(OnGetSavedCities(_getSavesCitiesUseCase.execute()));
+        .add(OnGetSavedCities(_getSavesVivocalUseCase.execute()));
   }
 
   void onGetWeatherByCityName(String cityName) async {
     streamController.add(Loading());
-    final response = await _getWeatherUseCase.execute(cityName);
+    final response = await _getVivocalUseCase.execute(cityName);
     switch (response.status) {
       case Status.SUCCESS:
         getListOfSavedCities();
