@@ -14,7 +14,7 @@ import 'package:flutter_clean_architecture/domain/repository/repository.dart';
 import 'package:flutter_clean_architecture/domain/use_case/get_saved_cities_use_case.dart';
 import 'package:flutter_clean_architecture/domain/use_case/get_weather_by_city_name_use_case.dart';
 import 'package:flutter_clean_architecture/domain/use_case/save_city_name_use_case.dart';
-import 'package:flutter_clean_architecture/ui/home_bloc.dart';
+import 'package:flutter_clean_architecture/ui/home/home_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

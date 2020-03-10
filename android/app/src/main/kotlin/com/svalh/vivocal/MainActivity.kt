@@ -1,4 +1,4 @@
-package br.com.ifood.flutter_clean_architecture
+package com.svalh.vivocal
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

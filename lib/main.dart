@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/ui/home_page.dart';
+import 'package:flutter_clean_architecture/ui/home/home_page.dart';
+import 'package:flutter_clean_architecture/ui/login/login_page.dart';
 
 import 'di/service_locator.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         const Locale('en'),
       ],
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/core/widget_state.dart';
 import 'package:flutter_clean_architecture/domain/model/weather.dart';
-import 'package:flutter_clean_architecture/ui/home_bloc.dart';
+import 'package:flutter_clean_architecture/ui/home/home_bloc.dart';
 
 class HomePage extends StatefulWidget {
   @override
