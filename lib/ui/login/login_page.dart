@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/contants.dart';
+import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/ui/login/login_bloc.dart';
 import 'package:flutter_clean_architecture/core/widget_state.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -24,13 +25,31 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
         children: <Widget>[
           backgroundLogin(),
           welcomeText(),
-          Positioned(
-            child: loginButton(),
-            right: 0,
-            bottom: 0,
-          )
+          buttonPositioned(),
+          loginStreamBuilder()
         ],
       ),
+    );
+  }
+
+  StreamBuilder<AppState> loginStreamBuilder() {
+    bool call = false;
+    return StreamBuilder(
+        stream: bloc.streamControllerLogin.stream,
+        builder: (context, AsyncSnapshot<AppState> snapshot) {
+          if (snapshot.hasData && snapshot.data is Success) {
+
+            return Container();
+          }
+          return Container();
+        });
+  }
+
+  Positioned buttonPositioned() {
+    return Positioned(
+      child: loginButton(),
+      right: 0,
+      bottom: 0,
     );
   }
 

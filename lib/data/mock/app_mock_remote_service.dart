@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_clean_architecture/data/service/remote_service.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AppMockRemoteService implements RemoteService {
 

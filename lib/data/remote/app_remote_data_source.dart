@@ -27,15 +27,8 @@ class AppRemoteDataSource implements RemoteDataSource {
   @override
   Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) async {
     try {
-      googleSignIn.signIn().then((result) {
-        result.authentication.then((googleKey) {
-          return AppResult.success(googleKey.accessToken);
-        }).catchError((e) {
-          print(e);
-        });
-      }).catchError((e) {
-        print(e);
-      });
+      final response = await googleSignIn.signIn();
+      return AppResult.success(response.id);
     } on AppException catch (error) {
       return AppResult.failure(error.message);
     } catch (e) {
