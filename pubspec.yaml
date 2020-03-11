@@ -46,7 +46,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/images/vivocalback.png
+  - assets/images/vivocalback.jpg
 
   # fonts:
   #   - family: Schyler
