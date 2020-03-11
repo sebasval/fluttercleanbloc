@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture/di/service_locator.dart';
+import 'package:flutter_clean_architecture/ui/home/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_clean_architecture/core/contants.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/ui/login/login_bloc.dart';
@@ -11,6 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
+  static final SharedPreferences _preferences =
+      serviceLocator<SharedPreferences>();
   GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: [
       'email',
@@ -33,13 +38,13 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
   }
 
   StreamBuilder<AppState> loginStreamBuilder() {
-    bool call = false;
     return StreamBuilder(
         stream: bloc.streamControllerLogin.stream,
         builder: (context, AsyncSnapshot<AppState> snapshot) {
           if (snapshot.hasData && snapshot.data is Success) {
-
-            return Container();
+            _preferences.setString(
+                (snapshot.data as Success).data.toString(), 'token');
+            return goToHome("/home");
           }
           return Container();
         });
@@ -94,5 +99,16 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
 
   void signInGoogle(GoogleSignIn googleSignIn) {
     bloc.singInGoogle(googleSignIn);
+  }
+
+  Widget goToHome(String home) {
+    return Navigator(onGenerateRoute: (RouteSettings settings) {
+      switch (settings.name) {
+        case '/':
+          return MaterialPageRoute(builder: (context) => HomePage());
+          break;
+      }
+      return null;
+    });
   }
 }
