@@ -5,15 +5,18 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class GetVivocalUseCase {
   Future<AppResult> execute(String cityName);
+
   Future<AppResult> signInGoogle(GoogleSignIn googleSignIn);
+
+  Future<AppResult> saveResponseGoogleSignIn(
+      GoogleSignInAccount googleSignInAccount);
 }
 
-class GetWeatherByCityName implements GetVivocalUseCase {
-
+class GetVivocalUseCaseImpl implements GetVivocalUseCase {
   final Repository repository;
   final SaveCityNameUseCase saveCityNameUseCase;
 
-  GetWeatherByCityName(this.repository, this.saveCityNameUseCase);
+  GetVivocalUseCaseImpl(this.repository, this.saveCityNameUseCase);
 
   @override
   Future<AppResult> execute(String cityName) async {
@@ -29,7 +32,7 @@ class GetWeatherByCityName implements GetVivocalUseCase {
   }
 
   @override
-  Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) async{
+  Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) async {
     final response = await repository.signInGoogle(googleSignIn);
     switch (response.status) {
       case Status.SUCCESS:
@@ -40,5 +43,17 @@ class GetWeatherByCityName implements GetVivocalUseCase {
     }
   }
 
-
+  @override
+  Future<AppResult> saveResponseGoogleSignIn(
+      GoogleSignInAccount googleSignInAccount) async {
+    final result =
+        await repository.saveResponseGoogleSignIn(googleSignInAccount);
+    switch (result.status) {
+      case Status.SUCCESS:
+        return AppResult.success(result.data);
+        break;
+      default:
+        return AppResult.failure(result.message);
+    }
+  }
 }

@@ -16,7 +16,9 @@ class TitleLogin extends StatelessWidget {
           ),
           Text(
             Constants.cal,
-            style: TextStyle(fontSize: 50,color: Color(Constants.thirdColor).withOpacity(0.7)),
+            style: TextStyle(
+                fontSize: 50,
+                color: Color(Constants.thirdColor).withOpacity(0.7)),
           ),
         ],
       ),
@@ -33,7 +35,7 @@ class DescriptionText extends StatelessWidget {
         child: Center(
           child: Text(
             Constants.welcomeLoginText,
-            style: TextStyle(fontSize: 20,color: Colors.black),
+            style: TextStyle(fontSize: 20, color: Colors.black),
             textAlign: TextAlign.center,
           ),
         ));
@@ -49,5 +51,26 @@ class BackgroundLogin extends StatelessWidget {
               image: AssetImage("assets/images/vivocalback.jpg"),
               fit: BoxFit.cover)),
     );
+  }
+}
+
+class ShowErrorDialog extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text("Error al iniciar sesión"),
+      content: Container(),
+      actions: <Widget>[okButton(context)],
+    );
+  }
+
+  FlatButton okButton(BuildContext context) {
+    return FlatButton(
+        onPressed: () {
+          Navigator.of(context,rootNavigator: true).pop();
+        },
+        child: Text("ok"));
   }
 }

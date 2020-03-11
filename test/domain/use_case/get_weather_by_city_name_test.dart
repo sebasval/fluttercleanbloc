@@ -10,7 +10,7 @@ void main() {
   final MockAppRepository repository = MockAppRepository();
   final SaveCityNameUseCase saveCityNameUseCase = SaveCityName(repository);
   final GetVivocalUseCase useCase =
-      GetWeatherByCityName(repository, saveCityNameUseCase);
+      GetVivocalUseCaseImpl(repository, saveCityNameUseCase);
 
   final String cityName = "London";
 

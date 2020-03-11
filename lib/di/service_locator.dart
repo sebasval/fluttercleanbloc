@@ -39,7 +39,7 @@ Future<void> setupLocator() async {
       .registerLazySingleton<LocalDataSource>(() => AppLocalDataSource());
 
   serviceLocator.registerFactory<GetVivocalUseCase>(
-      () => GetWeatherByCityName(serviceLocator.get(), serviceLocator.get()));
+      () => GetVivocalUseCaseImpl(serviceLocator.get(), serviceLocator.get()));
   serviceLocator.registerFactory<SaveCityNameUseCase>(
       () => SaveCityName(serviceLocator.get()));
   serviceLocator.registerFactory<SaveVivocalUseCase>(

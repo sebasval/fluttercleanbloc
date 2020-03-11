@@ -28,11 +28,11 @@ class AppRemoteDataSource implements RemoteDataSource {
   Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) async {
     try {
       final response = await googleSignIn.signIn();
-      return AppResult.success(response.id);
+      return AppResult.success(response);
     } on AppException catch (error) {
       return AppResult.failure(error.message);
     } catch (e) {
-      return AppResult.failure();
+      return AppResult.failure(e.toString());
     }
   }
 }

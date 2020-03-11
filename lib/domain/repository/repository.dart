@@ -5,6 +5,8 @@ abstract class Repository {
 
   Future<AppResult> getWeatherByCityName(String cityName);
   Future<AppResult> signInGoogle(GoogleSignIn googleSignIn);
+  Future<AppResult> saveResponseGoogleSignIn(GoogleSignInAccount googleSignInAccount);
+
 
   void saveCityName(String cityName);
 

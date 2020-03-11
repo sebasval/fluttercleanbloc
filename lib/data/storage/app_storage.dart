@@ -1,5 +1,8 @@
+import 'package:flutter_clean_architecture/core/app_result.dart';
+import 'package:flutter_clean_architecture/core/contants.dart';
 import 'package:flutter_clean_architecture/data/storage/storage.dart';
 import 'package:flutter_clean_architecture/di/service_locator.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppStorage implements Storage {
@@ -21,5 +24,21 @@ class AppStorage implements Storage {
     final List<String> cities = getCityNames();
     cities.add(cityName);
     _preferences.setString(_cityNames, cities.join(','));
+  }
+
+  @override
+  Future<AppResult> saveResponseGoogleSignIn(
+      GoogleSignInAccount googleSignInAccount) async {
+    try {
+      _preferences.setString(
+          googleSignInAccount.id.toString(), Constants.idAccount);
+      _preferences.setString(
+          googleSignInAccount.email.toString(), Constants.emailAccount);
+      _preferences.setString(
+          googleSignInAccount.displayName.toString(), Constants.nameAccount);
+      return AppResult.success();
+    } catch (e) {
+      return AppResult.failure();
+    }
   }
 }

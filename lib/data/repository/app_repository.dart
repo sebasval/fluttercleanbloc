@@ -21,4 +21,9 @@ class AppRepository implements Repository {
 
   @override
   Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) => remoteDataSource.signInGoogle(googleSignIn);
+
+  @override
+  Future<AppResult> saveResponseGoogleSignIn(GoogleSignInAccount googleSignInAccount) {
+    return localDataSource.saveResponseGoogleSignIn(googleSignInAccount);
+  }
 }
