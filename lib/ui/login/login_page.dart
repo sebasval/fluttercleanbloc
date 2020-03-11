@@ -30,7 +30,7 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
       body: Stack(
         children: <Widget>[
           BackgroundLogin(),
-          TitleText(),
+          TitleLogin(),
           DescriptionText(),
           loginButton(),
           loginStreamBuilder()
@@ -61,7 +61,7 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
         width: 135,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(topLeft: Radius.circular(45)),
-            color: Colors.grey),
+            color: Color(Constants.thirdColor).withOpacity(0.7)),
         child: GestureDetector(
           onTap: () {
             signInGoogle(googleSignIn);
