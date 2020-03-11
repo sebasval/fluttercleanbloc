@@ -4,6 +4,7 @@ import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/core/bloc.dart';
 import 'package:flutter_clean_architecture/domain/use_case/get_saved_cities_use_case.dart';
 import 'package:flutter_clean_architecture/domain/use_case/vivocal_use_case.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class LoginState extends AppState {}
 
@@ -12,8 +13,8 @@ class LoginBloc extends Bloc {
 
   LoginBloc(this._getVivocalUseCase);
 
-  void singInGoogle() async {
-    final response = await _getVivocalUseCase.signInGoogle();
+  void singInGoogle(GoogleSignIn googleSignIn) async {
+    final response = await _getVivocalUseCase.signInGoogle(googleSignIn);
     switch(response.status){
       case Status.SUCCESS:
         streamControllerLogin.sink.add(Success(response.data));

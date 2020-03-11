@@ -1,10 +1,11 @@
 import 'package:flutter_clean_architecture/core/app_result.dart';
 import 'package:flutter_clean_architecture/domain/repository/repository.dart';
 import 'package:flutter_clean_architecture/domain/use_case/save_vivocal_use_case.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class GetVivocalUseCase {
   Future<AppResult> execute(String cityName);
-  Future<AppResult> signInGoogle();
+  Future<AppResult> signInGoogle(GoogleSignIn googleSignIn);
 }
 
 class GetWeatherByCityName implements GetVivocalUseCase {
@@ -28,8 +29,8 @@ class GetWeatherByCityName implements GetVivocalUseCase {
   }
 
   @override
-  Future<AppResult> signInGoogle() async{
-    final response = await repository.signInGoogle();
+  Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) async{
+    final response = await repository.signInGoogle(googleSignIn);
     switch (response.status) {
       case Status.SUCCESS:
         return AppResult.success(response.data);

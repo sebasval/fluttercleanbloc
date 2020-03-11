@@ -15,6 +15,7 @@ import 'package:flutter_clean_architecture/domain/use_case/get_saved_cities_use_
 import 'package:flutter_clean_architecture/domain/use_case/vivocal_use_case.dart';
 import 'package:flutter_clean_architecture/domain/use_case/save_vivocal_use_case.dart';
 import 'package:flutter_clean_architecture/ui/home/home_bloc.dart';
+import 'package:flutter_clean_architecture/ui/login/login_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -46,4 +47,7 @@ Future<void> setupLocator() async {
 
   serviceLocator.registerFactory(
       () => HomeBloc(serviceLocator.get(), serviceLocator.get()));
+
+  serviceLocator.registerFactory(
+          () => LoginBloc(serviceLocator.get()));
 }

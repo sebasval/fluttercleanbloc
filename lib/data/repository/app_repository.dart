@@ -3,6 +3,7 @@ import 'package:flutter_clean_architecture/data/local/local_data_source.dart';
 import 'package:flutter_clean_architecture/data/remote/remote_data_source.dart';
 import 'package:flutter_clean_architecture/di/service_locator.dart';
 import 'package:flutter_clean_architecture/domain/repository/repository.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AppRepository implements Repository {
   static final remoteDataSource = serviceLocator<RemoteDataSource>();
@@ -19,5 +20,5 @@ class AppRepository implements Repository {
   void saveCityName(String cityName) => localDataSource.saveCityName(cityName);
 
   @override
-  Future<AppResult> signInGoogle() => remoteDataSource.signInGoogle();
+  Future<AppResult> signInGoogle(GoogleSignIn googleSignIn) => remoteDataSource.signInGoogle(googleSignIn);
 }

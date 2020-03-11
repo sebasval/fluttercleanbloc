@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/contants.dart';
 import 'package:flutter_clean_architecture/ui/login/login_bloc.dart';
+import 'package:flutter_clean_architecture/core/widget_state.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
+  GoogleSignIn googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,18 +60,20 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.only(topLeft: Radius.circular(45)),
           color: Colors.blue),
       child: GestureDetector(
-        onTap: _signInGoogle,
+        onTap: () {
+          signInGoogle(googleSignIn);
+        },
         child: Center(
           child: Text(
             Constants.loginContainerText,
-            style: TextStyle(color: Colors.white,fontSize: 20),
+            style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
       ),
     );
   }
 
-  void _signInGoogle() {
-    print("hola sebas!!");
+  void signInGoogle(GoogleSignIn googleSignIn) {
+    bloc.singInGoogle(googleSignIn);
   }
 }
