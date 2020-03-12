@@ -11,6 +11,7 @@ class Constants {
   static const String idAccount = "idAccount";
   static const String emailAccount = "emailAccount";
   static const String nameAccount = "nameAccount";
+  static const String photoAccount = "photoAccount";
 
   static const thirdColor = 0xf112d9c;
   static const primaryColor = 0xf2be3e3;

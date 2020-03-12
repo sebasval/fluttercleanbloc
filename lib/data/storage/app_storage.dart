@@ -36,6 +36,7 @@ class AppStorage implements Storage {
           googleSignInAccount.email.toString(), Constants.emailAccount);
       _preferences.setString(
           googleSignInAccount.displayName.toString(), Constants.nameAccount);
+      _preferences.setString(googleSignInAccount.photoUrl, Constants.photoAccount);
       return AppResult.success();
     } catch (e) {
       return AppResult.failure();
