@@ -26,10 +26,8 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
       body: Stack(
         children: <Widget>[
           BackgroundLogin(),
-          TitleLogin(),
-          DescriptionText(),
-          loginButton(),
-          loginStreamBuilder()
+          VivoContainer(),
+          WelcomeText()
         ],
       ),
     );

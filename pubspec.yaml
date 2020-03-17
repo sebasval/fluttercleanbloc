@@ -33,6 +33,7 @@ dependencies:
   google_sign_in: ^4.1.4
   cloud_firestore: ^0.13.4+1
   rxdart: ^0.23.1
+  flutter_video_compress: ^0.3.7+8
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +48,7 @@ flutter:
   uses-material-design: true
   assets:
   - assets/images/vivocalback.jpg
+  - assets/images/vivoback.jpg
 
   # fonts:
   #   - family: Schyler
