@@ -5,14 +5,15 @@ class VivoText extends StatelessWidget {
   final String _text;
   final int _color;
   final double _size;
+  final String _fontStyle;
 
-  VivoText(this._text, this._color, this._size);
+  VivoText(this._text, this._color, this._size,this._fontStyle);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       _text,
-      style: TextStyle(fontSize: _size, color: Color(_color).withOpacity(0.7)),
+      style: TextStyle(fontSize: _size, color: Color(_color).withOpacity(0.7),fontFamily: _fontStyle),
     );
   }
 }
@@ -46,9 +47,7 @@ class BackgroundLogin extends StatelessWidget {
           .size
           .height,
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/vivocalback.jpg"),
-              fit: BoxFit.cover)),
+        color: Color(Constants.thirdColor)),
     );
   }
 }
@@ -96,12 +95,17 @@ class VivoContainer extends StatelessWidget {
 }
 
 
-class WelcomeText extends StatelessWidget {
+class LoginTitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        top: 475,
-        left: 30,
-        child: VivoText(Constants.welcomeLoginText, Constants.thirdColor, 30.0));
+    return Center(child: VivoText(Constants.vivocal, Constants.white, 50.0,'ChunkFive'));
   }
 }
+
+class LoginDescriptionText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: VivoText(Constants.welcomeLoginText, Constants.thirdColor, 20.0,'Quicksand'));
+  }
+}
+

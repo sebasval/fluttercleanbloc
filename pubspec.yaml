@@ -49,16 +49,15 @@ flutter:
   assets:
   - assets/images/vivocalback.jpg
   - assets/images/vivoback.jpg
+  - assets/images/google_icon.jpg
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+  fonts:
+    - family: ChunkFive
+      fonts:
+        - asset: assets/fonts/ChunkFive-Regular.otf
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Light.otf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

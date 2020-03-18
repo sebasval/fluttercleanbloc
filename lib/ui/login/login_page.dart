@@ -23,11 +23,15 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      backgroundColor: Color(Constants.primaryColor).withOpacity(0.5),
+      body: Column(
         children: <Widget>[
-          BackgroundLogin(),
-          VivoContainer(),
-          WelcomeText()
+          SizedBox(height: 200),
+          LoginTitleText(),
+          SizedBox(height: 50),
+          LoginDescriptionText(),
+          SizedBox(height: 50),
+          loginButton()
         ],
       ),
     );
@@ -45,31 +49,28 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
   }
 
   Widget loginButton() {
-    return Positioned(
-      right: 0,
-      bottom: 0,
-      child: Container(
-        height: 70,
-        width: 135,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(45)),
-            color: Color(Constants.thirdColor).withOpacity(0.7)),
-        child: GestureDetector(
-          onTap: () {
-            signInGoogle(googleSignIn);
-          },
-          child: Center(
-            child: Text(
-              Constants.loginContainerText,
-              style: TextStyle(color: Colors.white, fontSize: 20),
-            ),
-          ),
-        ),
+    return MaterialButton(
+      color: Colors.white,
+      elevation: 2.0,
+      onPressed: () {
+        _signInGoogle(googleSignIn);
+      },
+      shape: StadiumBorder(),
+      child: Row(
+        children: <Widget>[
+          Container(
+              color: Color(Constants.white),
+              width: 30,
+              height: 30,
+              child: Image.asset('assets/images/google_icon.jpg')),
+          SizedBox(width: 10),
+          VivoText(Constants.signIn, Constants.thirdColor, 20, 'Quicksand')
+        ],
       ),
     );
   }
 
-  void signInGoogle(GoogleSignIn googleSignIn) {
+  void _signInGoogle(GoogleSignIn googleSignIn) {
     bloc.singInGoogle(googleSignIn);
   }
 
