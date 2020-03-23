@@ -13,28 +13,22 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
-  GoogleSignIn googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
-    ],
-  );
+  GoogleSignIn googleSignIn = GoogleSignIn();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(Constants.vivoBack), fit: BoxFit.cover)),
-          child: Stack(
-            children: <Widget>[
-              LoginTitleText(),
-              LoginDescriptionText(),
-              loginButton()
-            ],
-          ),
+        body: Stack(
+          children: <Widget>[
+            Container(decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(Constants.vivoBack), fit: BoxFit.cover))),
+            LoginTitleText(),
+            LoginDescriptionText(),
+            loginButton(),
+            loginStreamBuilder()
+          ],
         ),
       ),
     );
@@ -45,7 +39,7 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
         stream: bloc.streamControllerLogin.stream,
         builder: (context, AsyncSnapshot<AppState> snapshot) {
           if (snapshot.hasData && snapshot.data is Success) {
-            return goToHome("/home");
+            return goToHome();
           }
           return Container();
         });
@@ -81,7 +75,7 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
     bloc.singInGoogle(googleSignIn);
   }
 
-  Widget goToHome(String home) {
+  Widget goToHome() {
     return Navigator(onGenerateRoute: (RouteSettings settings) {
       switch (settings.name) {
         case '/':
