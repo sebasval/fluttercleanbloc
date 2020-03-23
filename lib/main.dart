@@ -25,10 +25,10 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         const Locale('en'),
       ],
+      home: LoginPage(),
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => HomePage(),
       },
-      home: LoginPage(),
     );
   }
 }

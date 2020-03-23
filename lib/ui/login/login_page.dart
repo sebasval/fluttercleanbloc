@@ -18,18 +18,18 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Container(decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(Constants.vivoBack), fit: BoxFit.cover))),
-            LoginTitleText(),
-            LoginDescriptionText(),
-            loginButton(),
-            loginStreamBuilder()
-          ],
-        ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(Constants.vivoBack),
+                      fit: BoxFit.cover))),
+          LoginTitleText(),
+          LoginDescriptionText(),
+          loginButton(),
+          loginStreamBuilder()
+        ],
       ),
     );
   }
