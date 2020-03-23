@@ -20,11 +20,13 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(Constants.vivoBack),
-                      fit: BoxFit.cover))),
+          Positioned(
+            child: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(Constants.vivoBack),
+                        fit: BoxFit.cover))),
+          ),
           LoginTitleText(),
           LoginDescriptionText(),
           loginButton(),

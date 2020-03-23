@@ -20,11 +20,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme:
-          new ThemeData(primarySwatch: Colors.blue, canvasColor: Colors.white),
-      supportedLocales: [
-        const Locale('en'),
-      ],
       home: LoginPage(),
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => HomePage(),
