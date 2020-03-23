@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/core/widget_state.dart';
 import 'package:flutter_clean_architecture/domain/model/weather.dart';
+import 'package:flutter_clean_architecture/ui/vivocal_widgets/vivocal_widgets.dart';
 import 'package:flutter_clean_architecture/ui/home/home_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,68 +36,11 @@ class _HomePageState extends WidgetSate<HomePage, HomeBloc> {
       appBar: AppBar(
         title: Text('Weather Forecast'),
       ),
-      body: StreamBuilder(
-        stream: bloc.streamController.stream,
-        builder: (context, AsyncSnapshot<AppState> snapshot) {
-          if (snapshot.hasData && snapshot.data is Loading)
-            return Center(
-              child: CircularProgressIndicator(
-                backgroundColor: Colors.white,
-              ),
-            );
-          if (snapshot.hasData && snapshot.data is Success) {
-            final Weather weather = (snapshot.data as Success).data;
-
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(weather.description),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(weather.main),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text('Temp: ${weather.temp.toString()}'),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text('Feels like: ${weather.feelsLike.toString()}'),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  TextField(
-                    decoration:
-                        InputDecoration(hintText: 'Enter a search term'),
-                    onSubmitted: (value) {
-                      bloc.onGetWeatherByCityName(value);
-                    },
-                  ),
-                  listOfCities()
-                ],
-              ),
-            );
-          }
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(hintText: 'Enter a search term'),
-                  onSubmitted: (value) {
-                    bloc.onGetWeatherByCityName(value);
-                  },
-                ),
-                listOfCities()
-              ],
-            ),
-          );
-        },
-      ),
+      body: (Column(
+        children: <Widget>[
+          Center(child: Text("Hola mundo"))
+        ],
+      )),
     );
   }
 

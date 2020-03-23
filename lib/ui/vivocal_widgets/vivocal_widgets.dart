@@ -6,14 +6,19 @@ class VivoText extends StatelessWidget {
   final int _color;
   final double _size;
   final String _fontStyle;
+  final double _opacity;
 
-  VivoText(this._text, this._color, this._size,this._fontStyle);
+  VivoText(this._text, this._color, this._size, this._fontStyle, this._opacity);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       _text,
-      style: TextStyle(fontSize: _size, color: Color(_color).withOpacity(0.7),fontFamily: _fontStyle),
+      textAlign: TextAlign.center,
+      style: TextStyle(
+          fontSize: _size,
+          color: Color(_color).withOpacity(_opacity),
+          fontFamily: _fontStyle),
     );
   }
 }
@@ -38,16 +43,9 @@ class BackgroundLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
-      height: MediaQuery
-          .of(context)
-          .size
-          .height,
-      decoration: BoxDecoration(
-        color: Color(Constants.thirdColor)),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      decoration: BoxDecoration(color: Color(Constants.thirdColor)),
     );
   }
 }
@@ -77,14 +75,8 @@ class VivoContainer extends StatelessWidget {
     return Positioned(
       top: 430,
       child: Container(
-        width: MediaQuery
-            .of(context)
-            .size
-            .width,
-        height: MediaQuery
-            .of(context)
-            .size
-            .height,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(55), topRight: Radius.circular(55)),
@@ -94,18 +86,24 @@ class VivoContainer extends StatelessWidget {
   }
 }
 
-
 class LoginTitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: VivoText(Constants.vivocal, Constants.white, 50.0,'ChunkFive'));
+    return Positioned(
+        top: 40,
+        left: 110,
+        child: VivoText(
+            Constants.vivocal, Colors.blue.blue, 50.0, 'ChunkFive', 0.6));
   }
 }
 
 class LoginDescriptionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: VivoText(Constants.welcomeLoginText, Constants.thirdColor, 20.0,'Quicksand'));
+    return Positioned(
+        top: 300,
+        left: 150,
+        child: VivoText(Constants.welcomeLoginText, Colors.blue.blue, 20.0,
+            'ChunkFive', 0.6));
   }
 }
-

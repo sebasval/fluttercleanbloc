@@ -23,16 +23,19 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(Constants.primaryColor).withOpacity(0.5),
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: 200),
-          LoginTitleText(),
-          SizedBox(height: 50),
-          LoginDescriptionText(),
-          SizedBox(height: 50),
-          loginButton()
-        ],
+      body: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(Constants.vivoBack), fit: BoxFit.cover)),
+          child: Stack(
+            children: <Widget>[
+              LoginTitleText(),
+              LoginDescriptionText(),
+              loginButton()
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -49,23 +52,27 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
   }
 
   Widget loginButton() {
-    return MaterialButton(
-      color: Colors.white,
-      elevation: 2.0,
-      onPressed: () {
-        _signInGoogle(googleSignIn);
-      },
-      shape: StadiumBorder(),
-      child: Row(
-        children: <Widget>[
-          Container(
-              color: Color(Constants.white),
-              width: 30,
-              height: 30,
-              child: Image.asset('assets/images/google_icon.jpg')),
-          SizedBox(width: 10),
-          VivoText(Constants.signIn, Constants.thirdColor, 20, 'Quicksand')
-        ],
+    return Positioned(
+      right: 0,
+      bottom: 0,
+      child: Container(
+        height: 70,
+        width: 200,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(45)),
+            color: Colors.blue),
+        child: GestureDetector(
+          onTap: () {
+            _signInGoogle(googleSignIn);
+          },
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: VivoText(Constants.signIn, Constants.white, 20,
+                  Constants.chunkFive, 1.0),
+            ),
+          ),
+        ),
       ),
     );
   }
