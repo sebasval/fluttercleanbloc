@@ -14,9 +14,11 @@ class Constants {
   static const String nameAccount = "nameAccount";
   static const String photoAccount = "photoAccount";
   static const String signIn = "Iniciar sesión";
+  static const String explore = "Explora Vivocal";
 
   //Colors
   static const white = 0xfffffff;
+  static const black = 0xf000000;
   static const thirdColor = 0xf112d9c;
   static const primaryColor = 0xf2be3e3;
   static const secondaryColor = 0xfba6565;
@@ -26,6 +28,7 @@ class Constants {
 
   static const String quickSand = "Quicksand";
   static const String chunkFive = "ChunkFive";
+  static const String josefinSans = "JosefinSans";
 
 
 

@@ -64,8 +64,8 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: VivoText(Constants.signIn, Constants.white, 20,
-                  Constants.chunkFive, 1.0),
+              child: VivoText(Constants.signIn, 20,
+                  Constants.chunkFive, 1.0, Colors.white),
             ),
           ),
         ),

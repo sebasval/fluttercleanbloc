@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
+import 'package:flutter_clean_architecture/core/contants.dart';
 import 'package:flutter_clean_architecture/core/widget_state.dart';
 import 'package:flutter_clean_architecture/domain/model/weather.dart';
 import 'package:flutter_clean_architecture/ui/vivocal_widgets/vivocal_widgets.dart';
@@ -11,62 +12,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends WidgetSate<HomePage, HomeBloc> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  final List<String> _cities = List();
-
-  @override
-  void initState() {
-    bloc.streamController.stream.listen((data) {
-      if (data is Failure) showError(data.message);
-      if (data is OnGetSavedCities) {
-        setState(() {
-          _cities.clear();
-          _cities.addAll(data.cities);
-        });
-      }
-    });
-    bloc.getListOfSavedCities();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text('Weather Forecast'),
-      ),
+      appBar: AppBar(backgroundColor: Color(Constants.primaryColor).withOpacity(1.0)),
       body: (Column(
         children: <Widget>[
-          Center(child: Text("Hola mundo"))
+          exploreText(),
+          SizedBox(height: 10),
+          artistType()
         ],
       )),
     );
   }
 
-  Widget listOfCities() {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: _cities.length,
-      shrinkWrap: true,
-      itemBuilder: (BuildContext context, int index) => GestureDetector(
-        child: Padding(
-          padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
-          child: Text(_cities[index]),
-        ),
-      ),
-    );
+  Padding artistType() {
+    return Padding(
+          padding: const EdgeInsets.only(left:10.0),
+          child: ArtistType(),
+        );
   }
 
-  void showError(String message) {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(
-        message,
-        style: TextStyle(
-          fontSize: 20,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    ));
+  Padding exploreText() {
+    return Padding(
+          padding: const EdgeInsets.only(left:10.0,top: 20.0),
+          child: VivoText(Constants.explore, 25.0, Constants.josefinSans, 1.0),
+        );
   }
 }

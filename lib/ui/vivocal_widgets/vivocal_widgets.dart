@@ -3,12 +3,13 @@ import 'package:flutter_clean_architecture/core/contants.dart';
 
 class VivoText extends StatelessWidget {
   final String _text;
-  final int _color;
   final double _size;
   final String _fontStyle;
   final double _opacity;
+  final Color _color;
 
-  VivoText(this._text, this._color, this._size, this._fontStyle, this._opacity);
+  VivoText(this._text, this._size, this._fontStyle, this._opacity,
+      [this._color = Colors.black]);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class VivoText extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
           fontSize: _size,
-          color: Color(_color).withOpacity(_opacity),
+          color: _color.withOpacity(_opacity),
           fontFamily: _fontStyle),
     );
   }
@@ -92,8 +93,8 @@ class LoginTitleText extends StatelessWidget {
     return Positioned(
         top: 40,
         left: 110,
-        child: VivoText(
-            Constants.vivocal, Colors.blue.blue, 50.0, 'ChunkFive', 0.6));
+        child:
+            VivoText(Constants.vivocal, 50.0, Constants.chunkFive, 1.0, Color(Constants.primaryColor)));
   }
 }
 
@@ -103,7 +104,21 @@ class LoginDescriptionText extends StatelessWidget {
     return Positioned(
         top: 300,
         left: 150,
-        child: VivoText(Constants.welcomeLoginText, Colors.blue.blue, 20.0,
-            'ChunkFive', 0.6));
+        child: VivoText(
+            Constants.welcomeLoginText, 20.0, Constants.chunkFive,1.0, Color(Constants.primaryColor)));
   }
 }
+
+class ArtistType extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+
+      ],
+    )
+  }
+}
+
+
+

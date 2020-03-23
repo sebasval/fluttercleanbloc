@@ -58,6 +58,9 @@ flutter:
     - family: Quicksand
       fonts:
         - asset: assets/fonts/Quicksand-Light.otf
+    - family: JosefinSans
+      fonts:
+        - asset: assets/fonts/JosefinSans-Light.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

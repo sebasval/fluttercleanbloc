@@ -18,17 +18,11 @@ class HomeBloc extends Bloc {
 
   HomeBloc(this._getVivocalUseCase, this._getSavesVivocalUseCase);
 
-  void getListOfSavedCities() {
-    streamController.sink
-        .add(OnGetSavedCities(_getSavesVivocalUseCase.execute()));
-  }
-
   void onGetWeatherByCityName(String cityName) async {
     streamController.add(Loading());
     final response = await _getVivocalUseCase.execute(cityName);
     switch (response.status) {
       case Status.SUCCESS:
-        getListOfSavedCities();
         streamController.sink.add(Success(response.data));
         break;
       case Status.FAILURE:
