@@ -15,28 +15,22 @@ class _HomePageState extends WidgetSate<HomePage, HomeBloc> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color(Constants.primaryColor).withOpacity(1.0)),
-      body: (Column(
+      appBar: AppBar(
+          backgroundColor: Color(Constants.primaryColor).withOpacity(1.0)),
+      body: Column(
         children: <Widget>[
           exploreText(),
           SizedBox(height: 10),
-          artistType()
+          ArtistType()
         ],
-      )),
+      ),
     );
   }
 
-  Padding artistType() {
-    return Padding(
-          padding: const EdgeInsets.only(left:10.0),
-          child: ArtistType(),
-        );
-  }
-
-  Padding exploreText() {
-    return Padding(
-          padding: const EdgeInsets.only(left:10.0,top: 20.0),
-          child: VivoText(Constants.explore, 25.0, Constants.josefinSans, 1.0),
-        );
+  Widget exploreText() {
+    return Container(
+      margin: EdgeInsets.fromLTRB(20, 15, 200, 0),
+      child: VivoText(Constants.explore, 25.0, Constants.josefinSans, 1.0),
+    );
   }
 }

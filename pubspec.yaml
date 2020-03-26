@@ -50,6 +50,7 @@ flutter:
   - assets/images/vivocalback.jpg
   - assets/images/vivoback.jpg
   - assets/images/google_icon.jpg
+  - assets/images/singer.jpg
 
   fonts:
     - family: ChunkFive

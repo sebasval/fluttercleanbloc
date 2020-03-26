@@ -15,6 +15,7 @@ class Constants {
   static const String photoAccount = "photoAccount";
   static const String signIn = "Iniciar sesión";
   static const String explore = "Explora Vivocal";
+  static const String singer = "Cantante";
 
   //Colors
   static const white = 0xfffffff;

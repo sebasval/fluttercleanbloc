@@ -93,8 +93,8 @@ class LoginTitleText extends StatelessWidget {
     return Positioned(
         top: 40,
         left: 110,
-        child:
-            VivoText(Constants.vivocal, 50.0, Constants.chunkFive, 1.0, Color(Constants.primaryColor)));
+        child: VivoText(Constants.vivocal, 50.0, Constants.chunkFive, 1.0,
+            Color(Constants.primaryColor)));
   }
 }
 
@@ -104,21 +104,64 @@ class LoginDescriptionText extends StatelessWidget {
     return Positioned(
         top: 300,
         left: 150,
-        child: VivoText(
-            Constants.welcomeLoginText, 20.0, Constants.chunkFive,1.0, Color(Constants.primaryColor)));
+        child: VivoText(Constants.welcomeLoginText, 20.0, Constants.chunkFive,
+            1.0, Color(Constants.primaryColor)));
+  }
+}
+
+class ViVoCard extends StatelessWidget {
+  final String _description;
+  static String _image;
+
+  ViVoCard(this._description, String _image) {
+    ViVoCard._image = _image;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 165,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20.0),
+          color: Colors.white,
+          boxShadow: [BoxShadow(blurRadius: 2.0, color: Colors.grey)]),
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 5.0, right: 5.0),
+            child: Image.asset(_image),
+          ),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.only(top: 6,bottom: 5),
+            child: VivoText(_description, 20.0, Constants.josefinSans, 1.0),
+          )
+        ],
+      ),
+    );
   }
 }
 
 class ArtistType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-
-      ],
-    )
+    return Container(
+      height: 172,
+      width: MediaQuery.of(context).size.width,
+      child: ListView(
+        padding: EdgeInsets.only(top: 5.0,bottom: 5.0),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          SizedBox(width: 20,),
+          ViVoCard(Constants.singer, 'assets/images/singer.jpg'),
+          SizedBox(width: 20,),
+          ViVoCard(Constants.singer, 'assets/images/singer.jpg'),
+          SizedBox(width: 20,),
+          ViVoCard(Constants.singer, 'assets/images/singer.jpg'),
+        ],
+      ),
+    );
   }
 }
-
-
-
