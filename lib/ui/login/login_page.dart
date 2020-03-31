@@ -20,13 +20,7 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Positioned(
-            child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(Constants.vivoBack),
-                        fit: BoxFit.cover))),
-          ),
+          VivoBackground(),
           LoginTitleText(),
           LoginDescriptionText(),
           loginButton(),
@@ -35,6 +29,7 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
       ),
     );
   }
+
 
   StreamBuilder<AppState> loginStreamBuilder() {
     return StreamBuilder(

@@ -87,14 +87,26 @@ class VivoContainer extends StatelessWidget {
   }
 }
 
+class VivoBackground extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(Constants.vivoBack), fit: BoxFit.cover))),
+    );
+  }
+}
+
 class LoginTitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        top: 40,
+        top: 200,
         left: 110,
         child: VivoText(Constants.vivocal, 50.0, Constants.chunkFive, 1.0,
-            Color(Constants.primaryColor)));
+            Colors.blue));
   }
 }
 
@@ -105,7 +117,7 @@ class LoginDescriptionText extends StatelessWidget {
         top: 300,
         left: 150,
         child: VivoText(Constants.welcomeLoginText, 20.0, Constants.chunkFive,
-            1.0, Color(Constants.primaryColor)));
+            1.0, Colors.blue));
   }
 }
 
@@ -134,7 +146,7 @@ class ViVoCard extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(top: 6,bottom: 5),
+            padding: const EdgeInsets.only(top: 6, bottom: 5),
             child: VivoText(_description, 20.0, Constants.josefinSans, 1.0),
           )
         ],
@@ -150,15 +162,21 @@ class ArtistType extends StatelessWidget {
       height: 172,
       width: MediaQuery.of(context).size.width,
       child: ListView(
-        padding: EdgeInsets.only(top: 5.0,bottom: 5.0),
+        padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          SizedBox(width: 20,),
+          SizedBox(
+            width: 20,
+          ),
           ViVoCard(Constants.singer, 'assets/images/singer.jpg'),
-          SizedBox(width: 20,),
+          SizedBox(
+            width: 20,
+          ),
           ViVoCard(Constants.singer, 'assets/images/singer.jpg'),
-          SizedBox(width: 20,),
+          SizedBox(
+            width: 20,
+          ),
           ViVoCard(Constants.singer, 'assets/images/singer.jpg'),
         ],
       ),
