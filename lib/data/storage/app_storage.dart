@@ -31,12 +31,13 @@ class AppStorage implements Storage {
       GoogleSignInAccount googleSignInAccount) async {
     try {
       _preferences.setString(
-          googleSignInAccount.id.toString(), Constants.idAccount);
+          Constants.idAccount, googleSignInAccount.id.toString());
       _preferences.setString(
-          googleSignInAccount.email.toString(), Constants.emailAccount);
+          Constants.emailAccount, googleSignInAccount.email.toString());
       _preferences.setString(
-          googleSignInAccount.displayName.toString(), Constants.nameAccount);
-      _preferences.setString(googleSignInAccount.photoUrl, Constants.photoAccount);
+          Constants.nameAccount, googleSignInAccount.displayName.toString());
+      _preferences.setString(
+          Constants.photoAccount, googleSignInAccount.photoUrl);
       return AppResult.success();
     } catch (e) {
       return AppResult.failure();

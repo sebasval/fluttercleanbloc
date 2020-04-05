@@ -105,8 +105,8 @@ class LoginTitleText extends StatelessWidget {
     return Positioned(
         top: 200,
         left: 110,
-        child: VivoText(Constants.vivocal, 50.0, Constants.chunkFive, 1.0,
-            Colors.blue));
+        child: VivoText(
+            Constants.vivocal, 50.0, Constants.chunkFive, 1.0, Colors.blue));
   }
 }
 
@@ -181,5 +181,73 @@ class ArtistType extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class VivoBackContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: 300,
+          decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(35),
+                  bottomLeft: Radius.circular(35))),
+        ),
+        left: 0,
+        top: 0);
+  }
+}
+
+class ProfileImage extends StatelessWidget {
+  final String _photoUrl;
+
+  ProfileImage(this._photoUrl);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 100,
+      left: 20,
+      child: Container(
+        width: 100,
+        height: 100,
+        child: ClipOval(
+          child: FadeInImage.assetNetwork(
+              placeholder: 'assets/images/loading.gif', image: _photoUrl),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileName extends StatelessWidget {
+  final String _name;
+
+  ProfileName(this._name);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+        child: VivoText(_name, 20, Constants.chunkFive, 1.0, Colors.white),
+        left: 140,
+        top: 120);
+  }
+}
+
+class ProfileId extends StatelessWidget {
+  final String _id;
+
+  ProfileId(this._id);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+        child: VivoText(_id, 20, Constants.quickSand, 1.0, Colors.white),
+        left: 140,
+        top: 150);
   }
 }
