@@ -30,7 +30,6 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
     );
   }
 
-
   StreamBuilder<AppState> loginStreamBuilder() {
     return StreamBuilder(
         stream: bloc.streamControllerLogin.stream,
@@ -59,8 +58,8 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: VivoText(Constants.signIn, 20,
-                  Constants.chunkFive, 1.0, Colors.white),
+              child: VivoText(
+                  Constants.signIn, 20, Constants.chunkFive, 1.0, Colors.white),
             ),
           ),
         ),
@@ -81,5 +80,13 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
       }
       return null;
     });
+  }
+
+  String _holaMundo(int numero) {
+    return "hola";
+  }
+
+  int _Hola2(String hola) {
+    return 2;
   }
 }

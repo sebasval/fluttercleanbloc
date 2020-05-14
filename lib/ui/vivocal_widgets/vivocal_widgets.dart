@@ -16,6 +16,8 @@ class VivoText extends StatelessWidget {
     return Text(
       _text,
       textAlign: TextAlign.center,
+      overflow: TextOverflow.fade,
+      maxLines: 3,
       style: TextStyle(
           fontSize: _size,
           color: _color.withOpacity(_opacity),

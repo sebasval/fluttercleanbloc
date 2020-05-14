@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "579783629858",
+    "firebase_url": "https://vivocalapp.firebaseio.com",
+    "project_id": "vivocalapp",
+    "storage_bucket": "vivocalapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579783629858:android:c46fce8efa8842543c7e7b",
+        "android_client_info": {
+          "package_name": "com.svalh.vivocal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579783629858-nlmt0av7ruqdkm8bdh4ikgt1umj16nca.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.svalh.vivocal",
+            "certificate_hash": "5647fc2b20de78e53b82d8e779438f04bdf22677"
+          }
+        },
+        {
+          "client_id": "579783629858-s3khoa70v49qjsqgtrfb18s4ll4lakak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIu5gACWofQMeldGAxNPsYnBpHWZ9DVLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579783629858-s3khoa70v49qjsqgtrfb18s4ll4lakak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

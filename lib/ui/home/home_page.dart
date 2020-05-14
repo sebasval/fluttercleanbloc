@@ -86,7 +86,7 @@ class _HomePageState extends WidgetSate<HomePage, HomeBloc> {
 
   CurvedNavigationBar bottomNavigation() {
     return CurvedNavigationBar(
-      backgroundColor: Color(Constants.primaryColor).withOpacity(1.0),
+      backgroundColor: Colors.blue.withOpacity(1.0),
       items: <Widget>[
         Icon(Icons.search, size: 30, color: Colors.blue),
         Icon(Icons.list, size: 30, color: Colors.blue),
