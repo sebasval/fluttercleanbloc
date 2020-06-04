@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/ui/home/home_page.dart';
 import 'package:flutter_clean_architecture/ui/vivocal_widgets/vivocal_widgets.dart';
-import 'package:flutter_clean_architecture/core/contants.dart';
+import 'package:flutter_clean_architecture/core/constants.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
 import 'package:flutter_clean_architecture/ui/login/login_bloc.dart';
 import 'package:flutter_clean_architecture/core/widget_state.dart';
@@ -80,13 +80,5 @@ class _LoginPageState extends WidgetSate<LoginPage, LoginBloc> {
       }
       return null;
     });
-  }
-
-  String _holaMundo(int numero) {
-    return "hola";
-  }
-
-  int _Hola2(String hola) {
-    return 2;
   }
 }

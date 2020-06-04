@@ -1,5 +1,5 @@
 import 'package:flutter_clean_architecture/core/app_result.dart';
-import 'package:flutter_clean_architecture/core/contants.dart';
+import 'package:flutter_clean_architecture/core/constants.dart';
 import 'package:flutter_clean_architecture/data/storage/storage.dart';
 import 'package:flutter_clean_architecture/di/service_locator.dart';
 import 'package:google_sign_in/google_sign_in.dart';

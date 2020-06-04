@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/core/contants.dart';
+import 'package:flutter_clean_architecture/core/constants.dart';
 
 class VivoText extends StatelessWidget {
   final String _text;

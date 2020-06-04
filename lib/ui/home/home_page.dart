@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/core/app_state.dart';
-import 'package:flutter_clean_architecture/core/contants.dart';
+import 'package:flutter_clean_architecture/core/constants.dart';
 import 'package:flutter_clean_architecture/core/widget_state.dart';
 import 'package:flutter_clean_architecture/di/service_locator.dart';
 import 'package:flutter_clean_architecture/domain/model/weather.dart';
